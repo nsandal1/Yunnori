@@ -1,0 +1,31 @@
+import turtle
+
+#Graphics for Yunnori
+screen=turtle.Screen()
+image = "~/Desktop/Yunnori Board/Yun.gif"
+screen.addshape(image)
+turtle.shape(image)
+
+
+#Player Characters
+charac1 = Turtle()
+charac1.circle(20)
+
+
+class Player(object):
+    stillPlaying=True
+    def __init__(self, rolls=0, charac):
+        self.rolls=rolls
+        self.position=0
+
+    def randnum(self, rolls, position):
+        self.rolls=random.choice((-1, 1, 2, 3, 4, 5))
+        self.position=self.position+self.rolls
+        
+        
+
+class Node(object):
+    def getposition(X, Y):
+        player.getNode().getX()
+        player.getNode().getY
+    
