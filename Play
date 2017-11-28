@@ -1,15 +1,29 @@
 import turtle
+from graphics import *
 
 #Graphics for Yunnori
-screen=turtle.Screen()
-image = "~/Desktop/Yunnori Board/Yun.gif"
-screen.addshape(image)
-turtle.shape(image)
+
+class Characters(object):
+    def __init__(self, charac, color):
+win = GraphWin()
+col = ['blue', 'green', 'red', 'yellow']
+n = 2
+pt=Point(100, 50)
+pt.draw(win)
+cir1=Circle(pt, 25)
+cir1.draw(win)
+cOL = col[0:n]
+for i in cOL:
+    cir1.setFill(i)
+
+#screen=turtle.Screen()
+#image = "~/Desktop/Yunnori Board/Yun.gif"
+#screen.addshape(image)
+#turtle.shape(image)
 
 
 #Player Characters
-charac1 = Turtle()
-charac1.circle(20)
+
 
 
 class Player(object):
@@ -28,4 +42,3 @@ class Node(object):
     def getposition(X, Y):
         player.getNode().getX()
         player.getNode().getY
-    
