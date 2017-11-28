@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+Classes(States, Methods)\
+\
+\
+    Player#\{Piece\} [O&L]\
+        Pieces(S)\
+        Order(S)\
+\
+    Piece #[O]\
+        Position(S)\
+            Move(M)\
+        Color(S)\
+        Alive(S) [queued, inplay, completed]\
+        Stuck(S)\
+            Stick(M)\
+            Unstick(M)\
+        Graphics(C)\
+    \
+\
+    Game#\{Player, Piece, Coordinates\}\
+\
+        Positions(C)\
+        Coordinates(C)\
+        Players(C)[who is playing::collection of Player instances]\
+        Pieces(C)\
+        \
+        Branching(M) [Check if Branch is Possible / Choice Factor]\
+        Roll(M)\
+        Turn(S) [whose turn is it?]\
+        Turn(M) [check for extra turns,update whose turn]\
+        Respawn(M)\
+        Kill(M) [?]\
+        Shortcut(M) [Normal Move v. Special Move]\
+        Taking(M) [Gives you an extra turn]\
+        Continue(S) [Has someone won?]\
+\
+    Coordinates #[L]\
+    \
+        Grid(S)\
+        Current Locations(S)\
+        Piece2Grid(M)\
+        UpdatePosition(M)\
+        CheckIfEmpty(M)\
+        ValidateMove(M) [Is new position valid?]}
