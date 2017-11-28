@@ -52,27 +52,23 @@ for x in range(1,100):
     newPos = window.getMouse()
     moveTo(c, newPos)
     
-"""
+import random
+
 class Player(object):
     stillPlaying=True
-    def __init__(self, rolls=0, charac):
+    def __init__(self, positions=0, rolls=0):
         self.rolls=rolls
-        self.position=0
+        self.position=positions
         
-
-    def randnum(self, rolls, position):
-        roll = "Yes"
-        while roll == "Yes":
-            list=(-1, 1, 2, 3, 4, 5)
-            self.rolls=random.randint(list)
+#Stick roll, second roll condition
+    def randnum(self):
+        self.roll = "Yes"
+        list=(-1, 1, 2, 3, 4, 5)
+        while self.roll == "Yes":
+            self.rolls=random.choice(list)
             self.position=self.position+self.rolls
-        if self.rolls == 5:
-            #Re-enter the "While" loop
-            roll == "Yes"
-
-
-class Node(object):
-    def getposition(X, Y):
-        player.getNode().getX()
-        player.getNode().getY
-"""
+            print self.position
+            if self.rolls == 5:
+                continue
+            elif self.rolls != 5:
+                break
