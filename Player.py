@@ -1,15 +1,31 @@
-class Piece():
+import random
 
-    def __init__(self,name, num):
+class Piece():
+    
+    def __init__(self,name, num, color, status):
         self.position = (0,"x")
         self.num = num
         self.name = name
+        self.color = color
+        self.status = 'queued'
+        self.stuck = false
+        self.stuckTo = null
     
     def getPosition(self):
         return self.position
 
     def getPiece(self):
         return (self.name, self.num)
+    
+    def getStatus(self):
+        return self.status
+    
+    def movePiece(self, dieRoll):
+        self.position += dieRoll
+        
+    def stickToPiece(self, piece):
+        self.stuck = true
+        self.stuckTo = piece
 
 class Player():
 
@@ -65,10 +81,12 @@ class Coordinates():
 class Game():
 
     def __init__(self, player1=Player(), player2=Player("luis","green",2)):
-        self.player1=player1
-        self.player2=player2
-        self.players=(self.player1,self.player2)
-        self.coords=Coordinates(self.players)
+        self.player1 = player1
+        self.player2 = player2
+        self.players = (self.player1,self.player2)
+        self.coords = Coordinates(self.players)
+        self.turn = 1
+        self.contGame = true
 
     def retPlayers(self):
         print(self.players)
@@ -78,10 +96,40 @@ class Game():
 
     def getDict(self):
         return self.coords.getDict()
+    
+    def canBranch(self, piece):
+        if piece.position = corner:
+            return true
+        else return false
+    
+    def shortcut(self, piece):
+        if game.canBranch = true:
+            piece.movePiece() #shortcut
+    
+    def roll(self):
+        num = random.randint(0,5)
+        if (num = 0):
+            return -1
+        else return num
+    
+    def turn(self):
+        
+        
+    def contGame(self):
+        for x in range(0,3):
+            
 
 
 
-
+        Turn(S) [whose turn is it?]\ (2-4 player game)
+        Turn(M) [check for extra turns,update whose turn]\
+        Respawn(M)\.  [Coord(X), Coord(Y), Coord(Z) = Coord(Origin), Coord(Origin), Coor(Origin)] ?
+        Taking(M) [Gives you an extra turn]\
+        Kill(M)\
+        Shortcut(M) [Normal Move v. Special Move]\
+        Continue(S) [Has someone won?]\
+    
+    
 
 game1=Game()
 plyr=game1.retPlayerN(1)

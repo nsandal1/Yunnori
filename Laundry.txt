@@ -9,7 +9,7 @@ Classes(States, Methods)\
         Position(S)\
             Move(M)\
         Color(S)\
-        Alive(S) [queued, inplay, completed]\
+        Status(S) [queued, inplay, completed]\
         Stuck(S)\ (Yes or No)
             Stick(M)\  (Are piece on the same position? [for Coord(n) is there any X in Dictionary s.t. Coord(X)=Coord(n))
                             if so, Coord(n) = Coord(X)) [Piece_x(Coord(X)-->Coord(n)]
@@ -26,12 +26,12 @@ Classes(States, Methods)\
         \
         Branching(M) [Check if Branch is Possible / Choice Factor]\
         Roll(M)\
-        Turn(S) [whose turn is it?]\
+        Turn(S) [whose turn is it?]\ (2-4 player game)
         Turn(M) [check for extra turns,update whose turn]\
-        Respawn(M)\.  [Coord(X), Coord(Y), Coord(Z) = Coord(Origin), Coord(Origin), Coor(Origin)]
-        Kill(M) [??????]\
-        Shortcut(M) [Normal Move v. Special Move]\
+        Respawn(M)\.  [Coord(X), Coord(Y), Coord(Z) = Coord(Origin), Coord(Origin), Coor(Origin)] ?
         Taking(M) [Gives you an extra turn]\
+        Kill(M)\
+        Shortcut(M) [Normal Move v. Special Move]\
         Continue(S) [Has someone won?]\
 \
     Coordinates #[L]\
