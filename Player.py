@@ -2,29 +2,36 @@ import random
 
 class Piece():
     
-    def __init__(self,name, num, color, status):
+    def __init__(self, name, num, color):
         self.position = (0,"x")
         self.num = num
         self.name = name
         self.color = color
         self.status = 'queued'
-        self.stuck = false
-        self.stuckTo = null
+#        self.stuck = false
+        # if we initialize stuckTo as None, we don't need "stuck"
+        self.stuckTo = None
     
     def getPosition(self):
         return self.position
 
     def getPiece(self):
-        return (self.name, self.num)
+        return (self.name, self.num, self.color)
     
     def getStatus(self):
         return self.status
+    
+    def playPiece(self):
+        self.status = 'inPlay'
+        
+    def completePiece(self)
+        self.status = 'completed'
     
     def movePiece(self, dieRoll):
         self.position += dieRoll
         
     def stickToPiece(self, piece):
-        self.stuck = true
+#        self.stuck = true
         self.stuckTo = piece
 
 class Player():
@@ -98,19 +105,27 @@ class Game():
         return self.coords.getDict()
     
     def canBranch(self, piece):
-        if piece.position = corner:
+        if piece.position == corner:
             return true
         else return false
     
     def shortcut(self, piece):
-        if game.canBranch = true:
+        if game.canBranch:
             piece.movePiece() #shortcut
     
     def roll(self):
-        num = random.randint(0,5)
-        if (num = 0):
-            return -1
-        else return num
+        num = random.randint(0,15)
+        if (num > 9):
+            return 2
+        elif (num > 5):
+            return 1
+        elif (num > 2):
+            return 3
+        elif (num > 1):
+            return 4
+        elif (num > 0):
+            return 5
+        else return -1
     
     def turn(self):
         
