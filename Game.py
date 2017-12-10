@@ -19,10 +19,6 @@ class Game():                               #need to generalized to N players
             self.names.append(i.retName())
 
 
-        
-##        self.player1=player1
-##        self.player2=player2
-##        self.players=[self.player1,self.player2]
         self.coords=Coordinates.Coordinates(self.players)
     
     def winCondition(self):
@@ -84,6 +80,7 @@ class Game():                               #need to generalized to N players
         ##print(self.winCondition(),"hi")
             
         while not self.winCondition():
+            
             print("\n\n[[[[ It is Player {0}'s turn ]]]] \n\n".format(turn+1))
             self.whereAre(self.retPlayerN(turn).retName())
             
@@ -97,10 +94,12 @@ class Game():                               #need to generalized to N players
             
             if self.validateMove(piece) == "continue":
                 self.coords.updatePos(piece)
+                print(piece.retLastPos(),"---->",piece.getPosition())
 
             elif self.validateMove(piece) == "eat":
                 eaten = self.coords.whoIsThere(piece.getPosition())
                 self.coords.updatePos(piece)
+                print(piece.retLastPos(),"---->",piece.getPosition())
                 player=self.players[self.names.index(eaten[0])]
                 piece=player.retPieceN(eaten[1])
                 piece.eat()
@@ -122,35 +121,18 @@ class Game():                               #need to generalized to N players
 
             else: print("You should never get here")
             
-            
-
-            #elf.whereAre(self.retPlayerN(turn).retName())
-            
-
-            
-            
-
+    
             
             
             turn = (turn + 1) % self.noPlayers
 
-        
-            
-'''    
-    while self.winCondition():
 
-        print(turn)
-
-        turn = (turn + 1) % self.getNo()  #
-'''        
 
 def main():
     
     game1=Game(int(input("How many players? ")))     #could be implemented better
     game1.development()
-    #plyr=game1.retPlayerN(1)
-    #game1.whereAre()
-    #print(game1.retPlayerN(1).retColor())
+  
     if not(input("restart?... ").lower() == "n"):
         main()
     
@@ -160,7 +142,5 @@ if __name__== "__main__":
     main()
 
 
-#print(plyr.retColor())
-#print(plyr.retOrder())
-#print(plyr.retName())
+
 
