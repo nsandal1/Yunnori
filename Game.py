@@ -25,7 +25,7 @@ class Game():                               #need to generalized to N players
     
     def winCondition(self):
         for i in self.players:
-                if i.getWin() == 4:
+                if i.retWin() == 4:
                         return True
         return False
                     
