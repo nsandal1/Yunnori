@@ -15,6 +15,7 @@ Classes(States, Methods)\
                             if so, Coord(n) = Coord(X)) [Piece_x(Coord(X)-->Coord(n)]
              
         Graphics(C)\
+            cairo.py?
     \
 \
     Game#\{Player, Piece, Coordinates\}\
