@@ -8,6 +8,7 @@ class Player():
         self.pieces=(Piece.Piece(name,1),Piece.Piece(name,2),Piece.Piece(name,3),Piece.Piece(name,4))   #piece should contain player name
         self.order=order
         self.promoted=0
+        self.win = 0
 
     def retPieceN(self,n):
         return self.pieces[n-1]

@@ -1,4 +1,5 @@
 import Player
+import Piece
 import Coordinates
 import random
         
@@ -11,9 +12,14 @@ class Game():                               #need to generalized to N players
         self.noPlayers=number
         self.players=[]
         self.names=[]
+        self.pieces[]
         
         for i in range(number):
             self.players.append(Player.Player(input("\n\nPlayer {0} name: ".format(i+1)),input("Player {0} color: ".format(i+1)),i+1))
+            
+        for i in range(number):
+            for j in range(4):
+                self.pieces.append(Piece.Piece(self.players[i].retName(), j, self.players[i].getColor()))
             
         for i in self.players:
             self.names.append(i.retName())
@@ -22,14 +28,24 @@ class Game():                               #need to generalized to N players
         self.coords=Coordinates.Coordinates(self.players)
     
     def winCondition(self):
+        for i in self.pieces:
+            for j in self.players:
+                if piece.getPiece()[0] == j.retName():
+                    if piece.getPiece()[3] != 'completed':
+                        break
+                    else winnnnn
+                if j.win == 4:
+                    winningggg
+                    
+            
+        
         for i in self.players:
             if i.retPromoted() == 4:
                 print("\n\n [[[[   ",i.retName(),"has WON!!!   ]]]]")
                 return 1
             else:
                 return 0 #return int(input("termination condition: (0 or 1): "))                #naively: check dictionary for "y" for all player pieces
-                                                                           #         may be too computationally intensive though
-
+                                                                           
     def roll(self):
         num = random.randint(0,15)
         if (num > 9):

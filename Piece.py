@@ -13,10 +13,7 @@ class Piece():
         return self.position
 
     def getPiece(self):
-        return (self.name, self.num, self.color)
-    
-    def getStatus(self):
-        return self.status
+        return (self.name, self.num, self.color, self.status)
     
     def retLastPos(self):
         return self.lastPos
