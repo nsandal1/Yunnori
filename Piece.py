@@ -1,34 +1,43 @@
 class Piece():
 
-    def __init__(self,name, num):
-        self.position = (0,"x")     # x means out of game, y signifies a promoted piece
+    def __init__(self, name, num, color):
+        self.position = (0,"x")
         self.num = num
         self.name = name
+        self.color = color
+        self.status = 'queued'
+        self.stuckTo = None
         self.lastPos = None
     
     def getPosition(self):
         return self.position
 
     def getPiece(self):
-        return (self.name, self.num)
-
+        return (self.name, self.num, self.color)
+    
+    def getStatus(self):
+        return self.status
+    
     def retLastPos(self):
         return self.lastPos
-
-    def promote(self):
-        pass
-
-    def combine(self):
-        pass
-
-    def uncombine(self):
-        pass
-
+    
+    def playPiece(self):
+        self.status = 'inPlay'
+        
+    def completePiece(self)
+        self.status = 'completed'
+    
+    def movePiece(self, dieRoll):
+        self.position += dieRoll
+        
+    def stickToPiece(self, piece):
+        self.stuckTo = piece
+    
     def eat(self):
         self.position = (0,"x")
         
 
-    def move(self,coord):
+    def move(self, coord):
         if type(coord) is tuple:
             self.lastPos = self.position            #need it to undo a bad move
             self.position = int(coord[0]),coord[1]

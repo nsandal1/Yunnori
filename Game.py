@@ -31,9 +31,18 @@ class Game():                               #need to generalized to N players
                                                                            #         may be too computationally intensive though
 
     def roll(self):
-        seq=[-1,1,2,3,4,5,6]
-        return random.choice(seq)
-
+        num = random.randint(0,15)
+        if (num > 9):
+            return 2
+        elif (num > 5):
+            return 1
+        elif (num > 2):
+            return 3
+        elif (num > 1):
+            return 4
+        elif (num > 0):
+            return 5
+        else return -1
     
     def validateMove(self,piece):                 #decides if branching conditions are met
         coord=piece.getPosition() 
