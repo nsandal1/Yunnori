@@ -1,5 +1,4 @@
 import Player
-import Piece
 import Coordinates
 import random
         
