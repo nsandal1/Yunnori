@@ -1,0 +1,21 @@
+Interface Requirements: 
+  take (x,y) [grab a piece:tells you which piece has been grabbed??]
+  take (x,y) [place a piece]
+  can't move other people's pieces (where do we want to enforce this??)
+  tally?
+  vectorized (everything)
+  positioned will be scaled (ratio of the total size)
+      <<<non-active player cannot move/manipulate game >>>
+  images for board
+      <<<<stick rolling visualization?>>>>>
+  
+  
+  
+Coordinate Requirements:
+  grid the graphic (compartmentalize)
+  can't make illegal moves (grid math÷\¿)
+  snap2grid (take (x,y)[place piece], determin if legal, update coordinate)
+  
+Combine  
+  
+Predefine colors (pop() color list)
