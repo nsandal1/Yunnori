@@ -16,10 +16,7 @@ class Game():                               #need to generalized to N players
         
         for i in range(number):
             self.players.append(Player.Player(input("\n\nPlayer {0} name: ".format(i+1)),input("Player {0} color: ".format(i+1)),i+1))
-            
-        for i in range(number):
-            for j in range(4):
-                self.pieces.append(Piece.Piece(self.players[i].retName(), j, self.players[i].getColor()))
+        
             
         for i in self.players:
             self.names.append(i.retName())
@@ -28,24 +25,22 @@ class Game():                               #need to generalized to N players
         self.coords=Coordinates.Coordinates(self.players)
     
     def winCondition(self):
-        for i in self.pieces:
-            for j in self.players:
-                if piece.getPiece()[0] == j.retName():
-                    if piece.getPiece()[3] != 'completed':
-                        break
-                    else winnnnn
-                if j.win == 4:
-                    winningggg
+        for i in self.players:
+                if i.getWin() == 4:
+                        return True
+        return False
                     
             
-        
+        ''''
         for i in self.players:
             if i.retPromoted() == 4:
                 print("\n\n [[[[   ",i.retName(),"has WON!!!   ]]]]")
                 return 1
             else:
                 return 0 #return int(input("termination condition: (0 or 1): "))                #naively: check dictionary for "y" for all player pieces
-                                                                           
+        '''' 
+         
+         
     def roll(self):
         num = random.randint(0,15)
         if (num > 9):
@@ -101,19 +96,17 @@ class Game():                               #need to generalized to N players
         turn=0
         roll= None
         piece = None
-        
-        ##print(self.winCondition(),"hi")
             
         while not self.winCondition():
             
             print("\n\n[[[[ It is Player {0}'s turn ]]]] \n\n".format(turn+1))
             self.whereAre(self.retPlayerN(turn).retName())
             
-            #roll = self.roll() #taking out randomness for debugging
-            roll = int(input("\nroll: "))
+            roll = self.roll() #taking out randomness for debugging
+            #roll = int(input("\nroll: "))
             print("You rolled a {0}!\n".format(roll))
             piece = self.retPlayerN(turn).retPieceN(int(input("Select a Valid Piece to Move: ")))
-            piece.move(tuple(input("Input a Valid Coordinate: "))) ###THIS IS NOT GOING TO WORK
+            piece.move(tuple(input("Input a Valid Coordinate: "))) 
 
             #branching decisions should go here
             
@@ -128,8 +121,8 @@ class Game():                               #need to generalized to N players
                 player=self.players[self.names.index(eaten[0])]
                 piece=player.retPieceN(eaten[1])
                 piece.eat()
-                self.coords.updatePos(piece)#needs to take in piece for player eaten
-                #need to uncombine
+                self.coords.updatePos(piece)
+                                                        #need to uncombine
                 self.whereAre()
                 print("\n\n",self.retPlayerN(turn).retName(), "ate one of ", player.retName(),"'s pieces!")
 
@@ -155,7 +148,7 @@ class Game():                               #need to generalized to N players
 
 def main():
     
-    game1=Game(int(input("How many players? ")))     #could be implemented better
+    game1=Game(int(input("How many players? ")))    
     game1.development()
   
     if not(input("restart?... ").lower() == "n"):
