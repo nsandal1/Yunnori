@@ -21,7 +21,7 @@ class Piece():
     def playPiece(self):
         self.status = 'inPlay'
         
-    def completePiece(self)
+    def completePiece(self):
         self.status = 'completed'
     
     def movePiece(self, dieRoll):
