@@ -1,7 +1,7 @@
 class Coordinates():                    #dictionary of (name,pieceNo) and (coordinate)
 
     def __init__(self,players):
-        #self.grid= pass
+        
         self.locations= {}                  #dictionary for location of pieces
         for i in range(len(players)):
             for j in range(4):              #loops 4 times bc 4 pieces

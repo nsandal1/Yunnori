@@ -2,28 +2,29 @@ import Player
 import Coordinates
 import random
 
-##checking GIT
         
 foo=input("starting...")
 
 
-class Game():                               #need to generalized to N players
+class Game():                               
 
     def __init__(self, number=2):
         self.noPlayers=number
         self.players=[]
         self.names=[]
         self.pieces=[]
-        
+
+        #create Player instnacers
         for i in range(number):
             self.players.append(Player.Player(input("\n\nPlayer {0} name: ".format(i+1)),input("Player {0} color: ".format(i+1)),i+1))
-        
-            
+
+        #fill Names list
         for i in self.players:
             self.names.append(i.retName())
 
-
+        #initialize dictionary of piece positions
         self.coords=Coordinates.Coordinates(self.players)
+
     
     def winCondition(self):
         for i in self.players:
@@ -60,10 +61,21 @@ class Game():                               #need to generalized to N players
             return "combine"
         else:
             return "eat"
+
+
+        
+    def whereAre(self,player=0):
+        if player == 0:
+            for a,b in self.getDict().items():
+                print("{0}'s Piece #{1} is at Position {2}".format(a[0],a[1],b))
+        else:
+            for a,b in self.getDict().items():
+                if a[0] == player:
+                    print("{0}'s Piece #{1} is at Position {2}".format(a[0],a[1],b))
             
 
     
-    #Defining a bunch of helper functions that may not be necessary outside of Troubleshooting
+    #Defining helper functions that may not be necessary outside of Troubleshooting
     def getNo(self):
         return self.noPlayers
     
@@ -73,17 +85,6 @@ class Game():                               #need to generalized to N players
     def retPlayerN(self,n):
         return self.players[n]
 
-    def getDict(self):
-        return self.coords.getDict()
-
-    def whereAre(self,player=0):
-        if player == 0:
-            for a,b in self.getDict().items():
-                print("{0}'s Piece #{1} is at Position {2}".format(a[0],a[1],b))
-        else:
-            for a,b in self.getDict().items():
-                if a[0] == player:
-                    print("{0}'s Piece #{1} is at Position {2}".format(a[0],a[1],b))
 
     #Game develops from here
 

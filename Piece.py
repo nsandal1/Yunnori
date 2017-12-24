@@ -40,7 +40,7 @@ class Piece():
             self.position = int(coord[0]),coord[1]
             #print(self.getPosition()) #debugging
     
-
+            #add logic for case where peices are stuck together
         else: print("coordinate is not tuple")
         
 
