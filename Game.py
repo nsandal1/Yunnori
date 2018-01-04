@@ -2,8 +2,6 @@ import Player
 import Coordinates
 import random
 
-        
-foo=input("starting...")
 
 
 class Game():                               
